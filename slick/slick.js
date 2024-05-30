@@ -2615,25 +2615,37 @@
 
     };
 
+    // Slick.prototype.startLoad = function() {
+
+    //     var _ = this;
+
+    //     if (_.options.arrows === true && _.slideCount > _.options.slidesToShow) {
+
+    //         _.$prevArrow.hide();
+    //         _.$nextArrow.hide();
+
+    //     }
+
+    //     if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
+
+    //         _.$dots.hide();
+
+    //     }
+
+    //     _.$slider.addClass('slick-loading');
+
+    // };
+    
+    // 難波編集 2024/5/30
     Slick.prototype.startLoad = function() {
-
         var _ = this;
-
-        if (_.options.arrows === true && _.slideCount > _.options.slidesToShow) {
-
-            _.$prevArrow.hide();
-            _.$nextArrow.hide();
-
-        }
-
-        if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
-
-            _.$dots.hide();
-
-        }
-
+      
+        // 常に矢印とドットを表示するように変更
+        _.$prevArrow.show();
+        _.$nextArrow.show();
+        _.$dots.show();
+      
         _.$slider.addClass('slick-loading');
-
     };
 
     Slick.prototype.swipeDirection = function() {

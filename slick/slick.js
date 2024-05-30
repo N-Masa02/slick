@@ -6,7 +6,7 @@
 |___/_|_|\___|_|\_(_)/ |___/
                    |__/
 
-    Version: 1.8.2
+    Version: 1.8.4
     Author: N.Masa02
     Website: https://github.com/N-Masa02/
     Docs: hhttps://github.com/N-Masa02/slick
@@ -437,23 +437,22 @@
 
     Slick.prototype.buildArrows = function() {
         var _ = this;
-    
+  
         if (_.options.arrows === true) {
             _.$prevArrow = $(_.options.prevArrow).addClass('slick-arrow');
             _.$nextArrow = $(_.options.nextArrow).addClass('slick-arrow');
-    
-            // Always show arrows regardless of slide count.
+  
             _.$prevArrow.removeClass('slick-hidden').removeAttr('aria-hidden tabindex');
             _.$nextArrow.removeClass('slick-hidden').removeAttr('aria-hidden tabindex');
-    
+  
             if (_.htmlExpr.test(_.options.prevArrow)) {
                 _.$prevArrow.prependTo(_.options.appendArrows);
             }
-    
+  
             if (_.htmlExpr.test(_.options.nextArrow)) {
                 _.$nextArrow.appendTo(_.options.appendArrows);
             }
-    
+  
             if (_.options.infinite !== true) {
                 _.$prevArrow.addClass('slick-disabled').attr('aria-disabled', 'true');
             }
@@ -1031,37 +1030,14 @@
     };
 
     Slick.prototype.getDotCount = function() {
-
         var _ = this;
-
-        var breakPoint = 0;
-        var counter = 0;
         var pagerQty = 0;
-
-        if (_.options.infinite === true) {
-            if (_.slideCount <= _.options.slidesToShow) {
-                 ++pagerQty;
-            } else {
-                while (breakPoint < _.slideCount) {
-                    ++pagerQty;
-                    breakPoint = counter + _.options.slidesToScroll;
-                    counter += _.options.slidesToScroll <= _.options.slidesToShow ? _.options.slidesToScroll : _.options.slidesToShow;
-                }
-            }
-        } else if (_.options.centerMode === true) {
-            pagerQty = _.slideCount;
-        } else if(!_.options.asNavFor) {
-            pagerQty = 1 + Math.ceil((_.slideCount - _.options.slidesToShow) / _.options.slidesToScroll);
-        }else {
-            while (breakPoint < _.slideCount) {
-                ++pagerQty;
-                breakPoint = counter + _.options.slidesToScroll;
-                counter += _.options.slidesToScroll <= _.options.slidesToShow ? _.options.slidesToScroll : _.options.slidesToShow;
-            }
+  
+        for (var i = 0; i < _.slideCount; i += _.options.slidesToScroll) {
+            ++pagerQty;
         }
-
+  
         return pagerQty - 1;
-
     };
 
     Slick.prototype.getLeft = function(slideIndex) {
@@ -1272,7 +1248,7 @@
             _.buildRows();
             _.buildOut();
             _.setProps();
-            // _.startLoad();
+            _.startLoad();
             _.loadSlider();
             _.initializeEvents();
             _.updateArrows();
@@ -2591,26 +2567,26 @@
 
     };
 
-    // Slick.prototype.startLoad = function() {
+    Slick.prototype.startLoad = function() {
 
-    //     var _ = this;
+        var _ = this;
 
-    //     if (_.options.arrows === true && _.slideCount > _.options.slidesToShow) {
+        if (_.options.arrows === true && _.slideCount > _.options.slidesToShow) {
 
-    //         _.$prevArrow.hide();
-    //         _.$nextArrow.hide();
+            _.$prevArrow.hide();
+            _.$nextArrow.hide();
 
-    //     }
+        }
 
-    //     if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
+        if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
 
-    //         _.$dots.hide();
+            _.$dots.hide();
 
-    //     }
+        }
 
-    //     _.$slider.addClass('slick-loading');
+        _.$slider.addClass('slick-loading');
 
-    // };
+    };
 
     Slick.prototype.swipeDirection = function() {
 

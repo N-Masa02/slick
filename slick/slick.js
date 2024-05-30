@@ -6,12 +6,12 @@
 |___/_|_|\___|_|\_(_)/ |___/
                    |__/
 
- Version: 1.8.1
-  Author: Ken Wheeler
- Website: http://kenwheeler.github.io
-    Docs: http://kenwheeler.github.io/slick
-    Repo: http://github.com/kenwheeler/slick
-  Issues: http://github.com/kenwheeler/slick/issues
+    Version: 1.8.2
+    Author: N.Masa02
+    Website: https://github.com/N-Masa02/
+    Docs: hhttps://github.com/N-Masa02/slick
+    Repo: https://github.com/N-Masa02/slick
+    Issues: https://github.com/N-Masa02/slick/issues
 
  */
 /* global window, document, define, jQuery, setInterval, clearInterval */
@@ -480,26 +480,20 @@
     };
 
     Slick.prototype.buildDots = function() {
-
         var _ = this,
             i, dot;
-
-        if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
-
-            _.$slider.addClass('slick-dotted');
-
-            dot = $('<ul />').addClass(_.options.dotsClass);
-
-            for (i = 0; i <= _.getDotCount(); i += 1) {
-                dot.append($('<li />').append(_.options.customPaging.call(this, _, i)));
-            }
-
-            _.$dots = dot.appendTo(_.options.appendDots);
-
-            _.$dots.find('li').first().addClass('slick-active');
-
+    
+        _.$slider.addClass('slick-dotted');
+    
+        dot = $('<ul />').addClass(_.options.dotsClass);
+    
+        for (i = 0; i <= _.getDotCount(); i += 1) {
+            dot.append($('<li />').append(_.options.customPaging.call(this, _, i)));
         }
-
+    
+        _.$dots = dot.appendTo(_.options.appendDots);
+    
+        _.$dots.find('li').first().addClass('slick-active');
     };
 
     Slick.prototype.buildOut = function() {

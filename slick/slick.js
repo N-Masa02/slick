@@ -1296,7 +1296,7 @@
             _.buildRows();
             _.buildOut();
             _.setProps();
-            _.startLoad();
+            // _.startLoad();
             _.loadSlider();
             _.initializeEvents();
             _.updateArrows();
@@ -2635,18 +2635,6 @@
     //     _.$slider.addClass('slick-loading');
 
     // };
-    
-    // 難波編集 2024/5/30
-    Slick.prototype.startLoad = function() {
-        var _ = this;
-      
-        // 常に矢印とドットを表示するように変更
-        _.$prevArrow.show();
-        _.$nextArrow.show();
-        _.$dots.show();
-      
-        _.$slider.addClass('slick-loading');
-    };
 
     Slick.prototype.swipeDirection = function() {
 

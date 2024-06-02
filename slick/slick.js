@@ -656,52 +656,45 @@
     };
 
     Slick.prototype.changeSlide = function(event, dontAnimate) {
-
         var _ = this,
             $target = $(event.currentTarget),
             indexOffset, slideOffset, unevenOffset;
-
+    
         // If target is a link, prevent default action.
-        if($target.is('a')) {
+        if ($target.is('a')) {
             event.preventDefault();
         }
-
+    
         // If target is not the <li> element (ie: a child), find the <li>.
-        if(!$target.is('li')) {
+        if (!$target.is('li')) {
             $target = $target.closest('li');
         }
-
+    
         unevenOffset = (_.slideCount % _.options.slidesToScroll !== 0);
         indexOffset = unevenOffset ? 0 : (_.slideCount - _.currentSlide) % _.options.slidesToScroll;
-
+    
         switch (event.data.message) {
-
             case 'previous':
                 slideOffset = indexOffset === 0 ? _.options.slidesToScroll : _.options.slidesToShow - indexOffset;
-                if (_.slideCount > _.options.slidesToShow) {
-                    _.slideHandler(_.currentSlide - slideOffset, false, dontAnimate);
-                }
+                _.slideHandler(_.currentSlide - slideOffset, false, dontAnimate);
                 break;
-
+    
             case 'next':
                 slideOffset = indexOffset === 0 ? _.options.slidesToScroll : indexOffset;
-                if (_.slideCount > _.options.slidesToShow) {
-                    _.slideHandler(_.currentSlide + slideOffset, false, dontAnimate);
-                }
+                _.slideHandler(_.currentSlide + slideOffset, false, dontAnimate);
                 break;
-
+    
             case 'index':
                 var index = event.data.index === 0 ? 0 :
                     event.data.index || $target.index() * _.options.slidesToScroll;
-
+    
                 _.slideHandler(_.checkNavigable(index), false, dontAnimate);
                 $target.children().trigger('focus');
                 break;
-
+    
             default:
                 return;
         }
-
     };
 
     Slick.prototype.checkNavigable = function(index) {

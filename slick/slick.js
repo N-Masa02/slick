@@ -6,7 +6,7 @@
 |___/_|_|\___|_|\_(_)/ |___/
                    |__/
 
-    Version: 1.8.4
+    Version: 1.8.5
     Author: N.Masa02
     Website: https://github.com/N-Masa02/
     Docs: hhttps://github.com/N-Masa02/slick

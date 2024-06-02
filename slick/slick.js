@@ -6,7 +6,7 @@
 |___/_|_|\___|_|\_(_)/ |___/
                    |__/
 
-    Version: 1.8.5
+    Version: 1.8.6
     Author: N.Masa02
     Website: https://github.com/N-Masa02/
     Docs: hhttps://github.com/N-Masa02/slick
@@ -469,7 +469,7 @@
         dot = $('<ul />').addClass(_.options.dotsClass);
     
         for (i = 0; i <= _.getDotCount(); i += 1) {
-            dot.append($('<li />').append(_.options.customPaging.call(this, _, i)));
+            dot.append($('<li />').append(_.options.customPaging.call(this, _, i)).text('・'));
         }
     
         _.$dots = dot.appendTo(_.options.appendDots);

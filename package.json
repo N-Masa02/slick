@@ -1,6 +1,6 @@
 {
   "name": "slick-carousel-original",
-  "version": "1.8.5",
+  "version": "1.8.6",
   "description": "the last carousel you'll ever need",
   "main": "slick/slick.js",
   "repository": {
@@ -29,6 +29,6 @@
     "jquery": ">=1.8.0"
   },
   "dependencies": {
-    "slick-carousel-original": "^1.8.5"
+    "slick-carousel-original": "^1.8.6"
   }
 }
